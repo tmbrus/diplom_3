@@ -2,8 +2,8 @@ import requests
 from selenium import webdriver
 import pytest
 from api_methods import UserMethods, OrderMethods
-from curl import MANE_SITE
-from data import Ingredients, ApiUrl
+from curl import MANE_SITE, ApiUrl
+from data import Ingredients
 from generator import DataCreatedUser
 
 

@@ -1,6 +1,6 @@
 import allure
 from pages.main_page import ManePage
-
+from data import TestData
 
 
 class TestMainPage:
@@ -10,7 +10,7 @@ class TestMainPage:
         main_page = ManePage(driver)
         main_page.main_page_loading_wait()
         main_page.click_for_designer()
-        expected_result = 'Соберите бургер'
+        expected_result = TestData.DESIGNER_TITLE
         actual_result = main_page.get_text_headline_designer()
         assert actual_result == expected_result
 
@@ -19,7 +19,7 @@ class TestMainPage:
         main_page = ManePage(driver)
         main_page.main_page_loading_wait()
         main_page.click_for_orders_feed()
-        expected_result = 'Лента заказов'
+        expected_result = TestData.ORDER_FEED_TITLE
         actual_result = main_page.get_text_headline_order_feed()
         assert actual_result == expected_result
 
@@ -28,7 +28,7 @@ class TestMainPage:
         main_page = ManePage(driver)
         main_page.main_page_loading_wait()
         main_page.click_for_ingredient()
-        expected_result = 'Детали ингредиента'
+        expected_result = TestData.INGREDIENT_DETAILS_TITLE
         actual_result = main_page.get_text_headline_details_ingredient()
         assert actual_result == expected_result
 
@@ -38,7 +38,7 @@ class TestMainPage:
         main_page.main_page_loading_wait()
         main_page.click_for_ingredient()
         main_page.click_for_close_button_ingredient_card()
-        expected_result = 'Соберите бургер'
+        expected_result = TestData.DESIGNER_TITLE
         actual_result = main_page.get_text_headline_designer()
         assert actual_result == expected_result
 
@@ -47,6 +47,6 @@ class TestMainPage:
         main_page = ManePage(driver)
         main_page.main_page_loading_wait()
         main_page.put_ingredient_into_basket()
-        expected_result = '2'
+        expected_result = TestData.INGREDIENT_COUNTER_AFTER_ADD
         actual_result = main_page.get_text_counter_ingredient()
         assert actual_result == expected_result
